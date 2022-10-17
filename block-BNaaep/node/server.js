@@ -57,8 +57,10 @@ function handleRequest(req, res) {
             });
         }
 
+        
         //Form methods
 
+        
         //To display users
         else if (pathname === "/users" && req.method === "GET") {
             if (!req.url.includes("?")) {
@@ -82,7 +84,8 @@ function handleRequest(req, res) {
                         });
                     });
                 });
-            } else {
+            } 
+            else {
                 var username = parsedURl.query.username;
                 fs.readFile(userPath + username + ".json", (err, content) => {
                     if (err) return console.log(err);
@@ -92,6 +95,7 @@ function handleRequest(req, res) {
             }
         }
 
+        
         //To save user
         else if (pathname === "/form" && req.method === "POST") {
             var parsedData = qs.parse(store);
